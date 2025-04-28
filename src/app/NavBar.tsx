@@ -1,9 +1,10 @@
 // src/app/NavBar.tsx
 import React from 'react';
+import './globals.css';
 
 const NavBar = () => {
     return (
-    <nav className="fixed top-0 right-0 bg-white shadow p-4">
+    <nav className="fixed top-0 right-0 bg-navbar p-4">
         <ul className="flex flex-row items-center space-x-4">
         <li><a href="#home">Home</a></li>
         <li><a href="#product">Product</a></li>
