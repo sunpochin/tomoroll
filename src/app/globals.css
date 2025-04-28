@@ -3,6 +3,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --custom-pink: rgb(222, 197, 223);
 }
 
 @theme inline {
@@ -28,6 +29,28 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.custom-pink {
-  background-color: rgb(222, 197, 223); /* 使用 RGB 顏色 */
+.bg-custom-pink {
+  background-color: rgb(222, 197, 223);
+}
+
+.bg-navbar {
+  background-color: rgb(255, 197, 223);
+}
+
+.font-custom-brown {
+  color: rgb(128, 119, 64);
+}
+
+
+.circle {
+  width: 50px; /* 圓點的直徑 */
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgb(188, 128, 155); /* 圓點顏色 */
+  position: absolute; /* 絕對定位 */
+  transition: transform 0.9s; /* 平滑過渡效果 */
+}
+
+.circle:hover {
+  transform: translate(15px, 15px); /* 懸停時向右下移動 10px */
 }
