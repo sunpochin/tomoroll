@@ -15,5 +15,10 @@ module.exports = {
     'react/jsx-indent-props': [2, 2], // 使用 2 個空格縮排屬性
     'react/react-in-jsx-scope': 'off', // 禁用這條規則
   },
+  settings: {
+    react: {
+      version: 'detect', // 自動檢測 React 版本
+    },
+  },
   // 其他配置...
 }

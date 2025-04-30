@@ -1,13 +1,15 @@
 // src/app/ProductSection.tsx
 'use client'
 import React, { useState } from 'react'
+import dotenv from 'dotenv'
+dotenv.config()
 
 const ContactForm = () => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const response = await fetch('/api/contact', {
       method: 'POST',
