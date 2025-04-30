@@ -34,16 +34,12 @@ const HomeSection = () => {
         <img src="/images/whisky-1920.jpg" alt="home-image" />
         <div
           id="ideas"
-          className="
-        font-custom-brown 
-        text-center
-        text-4xl w-1/2 
-        min-h-screen flex flex-col items-center justify-center 
-        relative"
-          style={{ zIndex: 10 }}
+          className="font-custom-brown text-center text-4xl w-1/2 min-h-screen flex flex-col items-center justify-center relative"
         >
-          <p>Small ideas we grasp from a daydream of an elegant life</p>
           {circles}
+          <div style={{ zIndex: 10 }}>
+            Small ideas we grasp from a daydream of an elegant life
+          </div>
         </div>
       </div>
     </section>
