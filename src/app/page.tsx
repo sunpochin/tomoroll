@@ -1,8 +1,8 @@
-import NavBar from "./NavBar";
-import HomeSection from "./HomeSection";
-import ProductSection from "./ProductSection";
-import AboutSection from "./AboutSection";
-import ContactSection from "./ContactSection";
+import NavBar from './NavBar'
+import HomeSection from './HomeSection'
+import ProductSection from './ProductSection'
+import AboutSection from './AboutSection'
+import ContactSection from './ContactSection'
 
 export default function Home() {
   return (
@@ -15,5 +15,5 @@ export default function Home() {
         <ContactSection />
       </main>
     </div>
-  );
+  )
 }
