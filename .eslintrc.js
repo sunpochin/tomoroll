@@ -1,4 +1,9 @@
 module.exports = {
+  env: {
+    node: true, // 添加這一行
+    browser: true,
+    // ... 其他環境 ...
+  },
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
