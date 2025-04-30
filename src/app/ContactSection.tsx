@@ -3,7 +3,6 @@
 import React, { useState } from 'react'
 import dotenv from 'dotenv'
 dotenv.config()
-
 const ContactForm = () => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
