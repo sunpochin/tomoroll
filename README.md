@@ -1,6 +1,8 @@
 ## What is this
 
-This is a Company profile website I am developing for a start-up friend. Still Work In Progress.
+This is a Company profile website I am developing for a start-up friend. 
+It's using React + Next.js ecosystem. 
+Still Work In Progress.
 
 ## Demo
 
