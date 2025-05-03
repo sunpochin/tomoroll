@@ -30,7 +30,7 @@ const HomeSection = () => {
         alt="tomoroll"
         className="w-1/3 absolute top-0 left-20"
       />
-      <div className="flex flex-col items-center justify-between mt-20">
+      <div className="flex flex-col items-center justify-between mt-20 bg-white">
         <img src="/images/whisky-1920.jpg" alt="home-image" />
         <div
           id="ideas"
