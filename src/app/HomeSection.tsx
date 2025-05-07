@@ -1,21 +1,30 @@
 // src/app/HomeSection.tsx
-import React from 'react'
+'use client'
+import React, { useEffect, useState } from 'react'
 import Navbar from '@/app/NavBar'
 
 const HomeSection = () => {
-  const circles = Array.from({ length: 10 }).map((_, index) => {
-    // randomly generate the position of the circle
-    const left = Math.random() * 100 // random left position
-    const top = Math.random() * 100 // random top position
+  // 用 state 儲存圓圈座標，避免 hydration mismatch
+  const [circlePositions, setCirclePositions] = useState<
+    { left: number; top: number }[]
+  >([])
 
-    return (
-      <div
-        key={index}
-        className="circle"
-        style={{ left: `${left}%`, top: `${top}%`, zIndex: 1 }} // use percentage to set position and low z-index
-      />
-    )
-  })
+  useEffect(() => {
+    // 僅在 client 端產生隨機座標
+    const positions = Array.from({ length: 10 }).map(() => ({
+      left: Math.random() * 100,
+      top: Math.random() * 100,
+    }))
+    setCirclePositions(positions)
+  }, [])
+
+  const circles = circlePositions.map((pos, index) => (
+    <div
+      key={index}
+      className="circle"
+      style={{ left: `${pos.left}%`, top: `${pos.top}%`, zIndex: 1 }}
+    />
+  ))
 
   return (
     <section
