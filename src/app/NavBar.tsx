@@ -1,6 +1,7 @@
 // src/app/NavBar.tsx
 import React from 'react'
 import './globals.css'
+import Link from 'next/link'
 
 const NavBar = () => {
   return (
@@ -16,7 +17,7 @@ const NavBar = () => {
           <a href="#about">About Us</a>
         </li>
         <li>
-          <a href="#contact">Contact</a>
+          <Link href="/contact">Contact</Link>
         </li>
       </ul>
     </nav>
