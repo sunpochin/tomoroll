@@ -1,6 +1,6 @@
 // src/app/HomeSection.tsx
 'use client'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import Navbar from '@/app/NavBar'
 
 const HomeSection = () => {
@@ -9,6 +9,9 @@ const HomeSection = () => {
     { left: number; top: number }[]
   >([])
 
+  const [isShrunk, setIsShrunk] = useState(false)
+  const imgRef = useRef<HTMLImageElement>(null)
+
   useEffect(() => {
     // 僅在 client 端產生隨機座標
     const positions = Array.from({ length: 10 }).map(() => ({
@@ -16,7 +19,30 @@ const HomeSection = () => {
       top: Math.random() * 100,
     }))
     setCirclePositions(positions)
-  }, [])
+
+    const handleScroll = () => {
+      if (imgRef.current) {
+        const scrollY = window.scrollY
+        // 設定縮放閾值
+        if (scrollY > 200 && !isShrunk) {
+          setIsShrunk(true)
+        } else if (scrollY < 10 && isShrunk) {
+          setIsShrunk(false)
+        }
+        // 只在未縮小時做動畫縮放
+        if (!isShrunk) {
+          const scale = Math.max(1 - scrollY / 1000, 0.5)
+          const translateX = Math.min(scrollY * 0.2, 200)
+          const translateY = Math.min(scrollY * 0.2, 200)
+          imgRef.current.style.transform = `translate(${-translateX}px, ${-translateY}px) scale(${scale})`
+        } else {
+          imgRef.current.style.transform = ''
+        }
+      }
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [isShrunk])
 
   const circles = circlePositions.map((pos, index) => (
     <div
@@ -35,9 +61,15 @@ const HomeSection = () => {
     >
       <Navbar />
       <img
+        ref={imgRef}
         src="/images/tomoroll.png"
         alt="tomoroll"
-        className="w-1/3 absolute top-0 left-20"
+        className={
+          isShrunk
+            ? 'absolute top-0 left-0 w-[600px] h-[400px] transition-all duration-300'
+            : 'absolute top-0 left-0 w-[1564px] h-[1440px] transition-all duration-300'
+        }
+        style={{ transition: 'transform 0.2s' }}
       />
       <div className="flex flex-col items-center justify-between mt-20 bg-white">
         <img src="/images/whisky-1920.jpg" alt="home-image" />
