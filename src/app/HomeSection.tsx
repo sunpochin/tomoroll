@@ -27,7 +27,8 @@ const HomeSection = () => {
         if (scrollY > 200 && !isShrunk) {
           setIsShrunk(true)
         } else if (scrollY < 10 && isShrunk) {
-          setIsShrunk(false)
+          // 不再自動放大，縮小後就維持縮小狀態
+          // setIsShrunk(false)
         }
         // 只在未縮小時做動畫縮放
         if (!isShrunk) {
