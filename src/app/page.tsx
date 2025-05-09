@@ -4,6 +4,7 @@ import NavBar from './NavBar'
 import HomeSection from './HomeSection'
 import ProductSection from './ProductSection'
 import AboutSection from './AboutSection'
+import Footer from './Footer'
 import '@/app/globals.css'
 
 export default function Home() {
@@ -52,6 +53,7 @@ export default function Home() {
         <ProductSection />
         <AboutSection />
       </main>
+      <Footer />
     </div>
   )
 }
