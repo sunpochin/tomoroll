@@ -5,9 +5,13 @@ import Link from 'next/link' // 使用 Next.js 的 Link
 
 const ProductSection = () => {
   return (
-    <section id="product" className="min-h-screen flex flex-col items-center">
-      <h1>Product</h1>
-      <p>Product List</p>
+    <section
+      id="product"
+      // className="font-custom-pink bg-custom-pink min-h-screen flex flex-col items-center w-full"
+      className="font-custom-pink bg-white min-h-screen flex flex-col w-full"
+    >
+      <div className="text-4xl text-left">Menu </div>
+      <div className="text-4xl text-left">of TOMORoLL</div>
       <div className="grid grid-cols-3 gap-4 mt-4">
         {Array.from({ length: 9 }).map((_, index) => (
           <Link
